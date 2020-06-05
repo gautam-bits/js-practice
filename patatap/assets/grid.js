@@ -1,4 +1,5 @@
 var circles = []
+var shape = 1 ;
 var keyData = {
 
   q: {
@@ -159,11 +160,34 @@ var keyData = {
   }
 }
 
+
 function onKeyDown(event) {
   var maxPoint = new Point(view.size.width, view.size.height)
   var randomPoint = Point.random()
   var point = maxPoint * randomPoint
-  var newCircle = Path.Circle(point, 100)
+  if(shape%3 == 1)
+  {
+    var newCircle = Path.Circle(point, 100)
+    shape++
+    shape %= 3
+  }
+  else if(shape%3 == 2)
+  {
+    var xx = point.x 
+    var yy = point.y
+    xx += 200
+    yy += 200
+    var point2 = new Point(xx,yy)
+    var newCircle = Path.Rectangle(point, point2)
+    shape++
+    shape %= 3
+  }
+  else
+  {
+    var newCircle =  Path.RegularPolygon(point, 3, 120)
+    shape++
+    shape %= 3
+  }
   newCircle.fillColor = keyData[event.key].color
   keyData[event.key].sound.play()
   circles.push(newCircle)
