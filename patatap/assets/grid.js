@@ -1,3 +1,4 @@
+var h1Elements = document.getElementsByTagName("h1");
 var circles = []
 var shape = 1 ;
 var keyData = {
@@ -162,6 +163,7 @@ var keyData = {
 
 
 function onKeyDown(event) {
+  h1Elements[0].style.color = keyData[event.key].color;
   var maxPoint = new Point(view.size.width, view.size.height)
   var randomPoint = Point.random()
   var point = maxPoint * randomPoint
