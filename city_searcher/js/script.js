@@ -1,4 +1,4 @@
-const endpoint = 'https://github.com/gautam-bits/js-practice/blob/master/city_searcher/asssets/cities.json';
+const endpoint = 'https://gautam-bits.github.io/js-practice/city_searcher/asssets/cities.json';
 
 const cities = [];
 fetch(endpoint)
