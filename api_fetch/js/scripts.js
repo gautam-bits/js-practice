@@ -1,6 +1,7 @@
 
 function fetchdata(val1 , val2) {
-
+    console.log(val1);
+    console.log(val2);
     let endpoint1 = `https://codeforces.com/api/user.rating?handle=${val1}`;
     let endpoint2 = `https://codeforces.com/api/user.rating?handle=${val2}`;
     console.log(420);
@@ -27,13 +28,14 @@ function DisplayResults(you , his ) {
     //console.log(array1);
     array1.reverse();
     //console.log(array1);
+    //console.log(array2);
 
     const html = array1.map(e => {
       let ContestId = e.contestId;
       let ContestName = e.contestName;
       let YourRank = e.rank;
       let YourRating = e.newRating;
-      let HisElement = array2.find(element => element.contestId == e.contestId) ;
+      let HisElement = array2.find(element => element.contestId === e.contestId) ;
       let HisRank = -1;
       let HisRating = -1;
       if(HisElement)
@@ -71,7 +73,7 @@ let tablebody = document.getElementById("table-body");
 searchbutton.addEventListener("click" , function(){
 //console.log(69);
 let yourusername = yourhandle.value;
-let hisusername = yourhandle.value;
+let hisusername = hishandle.value;
 fetchdata(yourusername, hisusername);
 
 });
