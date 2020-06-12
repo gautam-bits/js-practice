@@ -222,7 +222,7 @@ function onFrame(event) {
     }
 
     circles[i].fillColor.hue += 10
-    circles[i].scale(0.9)
+    circles[i].scale(0.96)
     circles[i].rotate(7);
     
     if (circles[i].area < 1) {
