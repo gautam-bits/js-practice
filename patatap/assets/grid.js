@@ -221,7 +221,7 @@ function onFrame(event) {
       circles[i].position.y -= magy;
     }
 
-    circles[i].fillColor.hue += 3
+    circles[i].fillColor.hue += 10
     circles[i].scale(0.9)
     circles[i].rotate(7);
     
