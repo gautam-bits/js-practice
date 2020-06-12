@@ -197,8 +197,8 @@ function onKeyDown(event) {
 
 function onFrame(event) {
   for (var i = 0; i < circles.length; i++) {
-    var magx = Math.random()*12;
-    var magy = Math.sqrt(144 - (magx*magx));
+    var magx = Math.random()*40;
+    var magy = Math.sqrt(1600 - (magx*magx));
     var dir = Math.floor(Math.random()*4)
     if(dir === 0)
     {
@@ -221,7 +221,7 @@ function onFrame(event) {
       circles[i].position.y -= magy;
     }
 
-    circles[i].fillColor.hue += 1
+    circles[i].fillColor.hue += 3
     circles[i].scale(0.9)
     circles[i].rotate(7);
     
