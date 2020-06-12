@@ -169,7 +169,7 @@ function onKeyDown(event) {
   var point = maxPoint * randomPoint
   if(shape%3 == 1)
   {
-    var newCircle = Path.Circle(point, 100)
+    var newCircle = Path.Circle(point, 200)
     shape++
     shape %= 3
   }
@@ -177,8 +177,8 @@ function onKeyDown(event) {
   {
     var xx = point.x 
     var yy = point.y
-    xx += 200
-    yy += 200
+    xx += 350
+    yy += 350
     var point2 = new Point(xx,yy)
     var newCircle = Path.Rectangle(point, point2)
     shape++
@@ -186,7 +186,7 @@ function onKeyDown(event) {
   }
   else
   {
-    var newCircle =  Path.RegularPolygon(point, 3, 120)
+    var newCircle =  Path.RegularPolygon(point, 3, 220)
     shape++
     shape %= 3
   }
@@ -197,13 +197,39 @@ function onKeyDown(event) {
 
 function onFrame(event) {
   for (var i = 0; i < circles.length; i++) {
+    var magx = Math.random()*12;
+    var magy = Math.sqrt(144 - (magx*magx));
+    var dir = Math.floor(Math.random()*4)
+    if(dir === 0)
+    {
+      circles[i].position.x += magx;
+      circles[i].position.y += magy;
+    }
+    else if(dir === 1)
+    {
+      circles[i].position.x -= magx;
+      circles[i].position.y += magy;
+    }
+    if(dir === 2)
+    {
+      circles[i].position.x += magx;
+      circles[i].position.y -= magy;
+    }
+    if(dir === 3)
+    {
+      circles[i].position.x -= magx;
+      circles[i].position.y -= magy;
+    }
+
     circles[i].fillColor.hue += 1
     circles[i].scale(0.9)
+    circles[i].rotate(7);
+    
     if (circles[i].area < 1) {
       circles[i].remove() // remove the circle from the canvas
       circles.splice(i, 1) // remove the circle from the array
       i-- // decrement i so that the loop doesn't skip a circle because of .splice()
-      console.log(circles)
+      //console.log(circles)
     }
   }
 }
