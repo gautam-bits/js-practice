@@ -1,4 +1,5 @@
 var h1Elements = document.getElementsByTagName("h1");
+var canvas = document.getElementById("myCanvas");
 var circles = []
 var shape = 1 ;
 var keyData = {
@@ -161,8 +162,26 @@ var keyData = {
   }
 }
 
+var color,
+       letters = '0123456789ABCDEF'.split('')
+function AddDigitToColor(limit)
+{
+    color += letters[Math.round(Math.random() * limit )]
+}
+function GetRandomColor() {
+    color = '#'
+    AddDigitToColor(5)
+    for (var i = 0; i < 5; i++) {
+        AddDigitToColor(15)
+    }
+    return color
+}
 
 function onKeyDown(event) {
+  if(event.key === "space") {
+    h1Elements[0].style.background = GetRandomColor();
+    canvas.style.background = h1Elements[0].style.background;
+  }
   h1Elements[0].style.color = keyData[event.key].color;
   var maxPoint = new Point(view.size.width, view.size.height)
   var randomPoint = Point.random()
@@ -196,6 +215,7 @@ function onKeyDown(event) {
 }
 
 function onFrame(event) {
+
   for (var i = 0; i < circles.length; i++) {
     var magx = Math.random()*40;
     var magy = Math.sqrt(1600 - (magx*magx));

@@ -7,8 +7,10 @@ h1 {
   margin: 0;
   background-color: black;
   color: white;
+  height: 6vh;
 }
 canvas{
   width: 100%;
   background: black;
+  height: 93.5vh;
 }
