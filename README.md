@@ -5,7 +5,7 @@
 https://gautam-bits.github.io/js-practice/Whack-A-Mole   
 
 2) City-Searcher - A webpage where you can search for any indian city and it displays it's population .
-https://gautam-bits.github.io/js-practice/city-searcher
+https://gautam-bits.github.io/js-practice/city_searcher
 
 3) To-do-list  - A to-do-list app where you can manage your to-dos
 
